@@ -8,9 +8,9 @@ angular.module('dhu.sticky', [])
       return {
         restrict: 'A',
         scope: {
-          locate: '@',
-          at: '@',
-          animation: '@'
+          locate: '@stickyLocate',
+          at: '@stickyAt',
+          animation: '@stickyAnimation'
         },
         link: function(scope, element, attrs) {
           var locate = scope.locate || 'top',
