@@ -9,7 +9,8 @@ angular.module('dhu.sticky', [])
         restrict: 'A',
         scope: {
           locate: '@',
-          at: '@'
+          at: '@',
+          animation: '@'
         },
         link: function(scope, element, attrs) {
           var locate = scope.locate || 'top',
@@ -21,6 +22,13 @@ angular.module('dhu.sticky', [])
               setSticky,
               reset;
 
+          if (scope.animation) {
+            element.css('-webkit-transition', '1s ease-out all');
+            element.css('-moz-transition', '1s ease-out all');
+            element.css('-ms-transition', '1s ease-out all');
+            element.css('-o-transition', '1s ease-out all');
+            element.css('transition', '1s ease-out all');
+          }
 
           // Set appropriate style based on the location
           switch (locate) {
