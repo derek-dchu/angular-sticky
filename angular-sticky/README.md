@@ -1,3 +1,8 @@
 # angular-sticky directive
 
-This is a angular directive used to stick an element at one of the four location (top, bottom, left or right).
+This is an angular directive used to stick a html element at one of the four location (top, bottom, left or right).
+
+# Usage
+
+// *.html
+<div dhu.sticky ></div>
