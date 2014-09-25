@@ -14,7 +14,6 @@ angular.module('dhu.sticky', [])
         },
         link: function(scope, element, attrs) {
           var locate = scope.locate || 'top',
-              //at = scope.at || 0,
               $window = angular.element(window),
               doc = document.documentElement,
               startPosition,
@@ -99,16 +98,16 @@ angular.module('dhu.sticky', [])
           function resize() {
             switch (locate) {
               case 'left':
-                startPosition = at * window.innerWidth;
+                startPosition = scope.at * window.innerHeight || element.offset().left+1;
                 break;
               case 'bottom':
-                startPosition = at * window.innerHeight;
+                startPosition = scope.at * window.innerHeight || 0;
                 break;
               case 'right':
-                startPosition = at * window.innerWidth;
+                startPosition = scope.at * window.innerHeight || 0;
                 break;
               default :
-                startPosition = at * window.innerHeight;
+                startPosition = scope.at * window.innerHeight || element.offset().top+1;
                 break;
             }
           }
