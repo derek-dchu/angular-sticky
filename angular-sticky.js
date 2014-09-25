@@ -14,7 +14,7 @@ angular.module('dhu.sticky', [])
         },
         link: function(scope, element, attrs) {
           var locate = scope.locate || 'top',
-              at = scope.at || 0,
+              //at = scope.at || 0,
               $window = angular.element(window),
               doc = document.documentElement,
               startPosition,
@@ -23,11 +23,11 @@ angular.module('dhu.sticky', [])
               reset;
 
           if (scope.animation) {
-            element.css('-webkit-transition', '1s ease-out all');
-            element.css('-moz-transition', '1s ease-out all');
-            element.css('-ms-transition', '1s ease-out all');
-            element.css('-o-transition', '1s ease-out all');
-            element.css('transition', '1s ease-out all');
+            element.css('-webkit-transition', 'height 1s ease-out, background-color 1s ease-out');
+            element.css('-moz-transition', 'height 1s ease-out, background-color 1s ease-out');
+            element.css('-ms-transition', 'height 1s ease-out, background-color 1s ease-out');
+            element.css('-o-transition', 'height 1s ease-out, background-color 1s ease-out');
+            element.css('transition', 'height 1s ease-out, background-color 1s ease-out');
           }
 
           // Set appropriate style based on the location
@@ -36,7 +36,7 @@ angular.module('dhu.sticky', [])
               currPosition = function() {
                 return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)
               };
-              startPosition = at * window.innerWidth;
+              startPosition = scope.at * window.innerWidth || element.offset().left+1;
               setSticky = function() {
                 element.addClass('sticky-left');
               };
@@ -48,7 +48,7 @@ angular.module('dhu.sticky', [])
               currPosition = function() {
                 return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
               };
-              startPosition = at * window.innerHeight;
+              startPosition = scope.at * window.innerHeight || 0;
               setSticky = function() {
                 element.addClass('sticky-bottom');
               };
@@ -60,7 +60,7 @@ angular.module('dhu.sticky', [])
               currPosition = function() {
                 return (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0)
               };
-              startPosition = at * window.innerWidth;
+              startPosition = scope.at * window.innerWidth || 0;
               setSticky = function() {
                 element.addClass('sticky-right');
               };
@@ -72,7 +72,7 @@ angular.module('dhu.sticky', [])
               currPosition = function() {
                 return (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
               };
-              startPosition = at * window.innerHeight;
+              startPosition = scope.at * window.innerHeight || element.offset().top+1;
               setSticky = function() {
                 element.addClass('sticky-top');
               };
@@ -93,7 +93,6 @@ angular.module('dhu.sticky', [])
             {
               reset();
             }
-
           }
 
           // Handle the resize event
