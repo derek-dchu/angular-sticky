@@ -4,7 +4,7 @@
 
 angular.module('dhu.sticky', [])
 
-.directive('dhu.sticky', [function() {
+.directive('sticky', [function() {
       return {
         restrict: 'A',
         scope: {
