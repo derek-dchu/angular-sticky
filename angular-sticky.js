@@ -14,6 +14,7 @@ angular.module('dhu.sticky', [])
         },
         link: function(scope, element, attrs) {
           var locate = scope.locate || 'top',
+              isAnimation = scope.animation || false
               $window = angular.element(window),
               doc = document.documentElement,
               startPosition,
@@ -21,12 +22,12 @@ angular.module('dhu.sticky', [])
               setSticky,
               reset;
 
-          if (scope.animation) {
-            element.css('-webkit-transition', 'height 1s ease-out, background-color 1s ease-out');
-            element.css('-moz-transition', 'height 1s ease-out, background-color 1s ease-out');
-            element.css('-ms-transition', 'height 1s ease-out, background-color 1s ease-out');
-            element.css('-o-transition', 'height 1s ease-out, background-color 1s ease-out');
-            element.css('transition', 'height 1s ease-out, background-color 1s ease-out');
+          if (isAnimation) {
+            element.css('-webkit-transition', 'height 0s ease-out, background-color 1s ease-out');
+            element.css('-moz-transition', 'height 0s ease-out, background-color 1s ease-out');
+            element.css('-ms-transition', 'height 0s ease-out, background-color 1s ease-out');
+            element.css('-o-transition', 'height 0s ease-out, background-color 1s ease-out');
+            element.css('transition', 'height 0s ease-out, background-color 1s ease-out');
           }
 
           // Set appropriate style based on the location
