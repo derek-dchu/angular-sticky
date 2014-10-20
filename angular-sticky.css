@@ -13,6 +13,10 @@
     padding-bottom: 10px !important;
 }
 
+.sticky-top a.navbar-brand {
+    padding-top: 5px !important;
+}
+
 .sticky-bottom {
     bottom: 0!important;
     position: fixed !important;
